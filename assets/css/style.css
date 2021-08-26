@@ -69,30 +69,30 @@ section{
     margin-top : var(--section-margin);
     padding: 0px var(--section-padding);
 }
-section#hero{
+section{
     display:flex;
     flex-direction:column;
     align-items: center;
     justify-content: center;
 }
-section#hero .head{
+section .head{
     display:flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
 }
-section#hero .head .heading h1{
+section .head .heading h1{
     font-size: var(--heading-font-size);
     color:var(--black);
     font-weight: 700;
 }
-section#hero .head .sub-heading h3{
+section .head .sub-heading h3{
     font-size: var(--subheading-font-size);
     color: var(--grey-shade-1);
     font-weight: 500;
 }
-section#hero .body{
+section .body{
     width:100%;
     display:flex;
     flex-direction:row;
@@ -176,3 +176,4 @@ section#hero .body .body-desc .steps .step p{
     color:var(--grey-shade-2);
     text-align: center;
 }
+
