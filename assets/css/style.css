@@ -311,6 +311,9 @@ section#features .body .right-features .f-r .image .image-a img{
     height:100%;
     object-fit:scale-down;
 }
+section#team .body{
+    margin-bottom:100px;
+}
 section#team .body .single-image{
     width:45%;
     height:400px;
@@ -400,4 +403,101 @@ section#team .body .all-members .links{
     align-items: center;
     font-size:20px;
     color:var(--primary-color);
+}
+section#getInTouch .body{
+    margin-bottom: 100px;
+}
+section#getInTouch .body .form{
+    width:45%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+section#getInTouch .body .form  input{
+    width:300px;
+    border : 2px solid var(--primary-color);
+    border-radius: 20px;
+    padding:5px 10px;
+    margin-bottom:10px;
+}
+section#getInTouch .body .form  input:focus{
+    outline: none;
+}
+section#getInTouch .body .form input::placeholder{
+    padding: 5px 5px;
+}
+section#getInTouch .body .form textarea{
+    width:300px;
+    height:200px;
+    border : 2px solid var(--primary-color);
+    border-radius: 20px;
+    padding:5px 10px;
+    margin-bottom:10px;
+
+}
+section#getInTouch .body .form textarea:focus{
+    outline:none;
+}
+section#getInTouch .body .form textarea::-webkit-scrollbar{
+    width:5px;
+}
+section#getInTouch .body .form textarea::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: var(--primary-color);
+}
+section#getInTouch .body .form textarea::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: var(--grey-shade-2);
+}
+section#getInTouch .body .form button{
+    width:300px;
+    padding:5px;
+    background-color: var(--primary-color);
+    color:#fff;
+    font-weight: 500;
+    font-size: var(--sub-desc-font-size);
+}
+section#getInTouch .body .image{
+    width:45%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:400px;
+}
+section#getInTouch .body .image .image-a{
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    height:100%;
+}
+section#getInTouch .body .image .image-a img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: contain;
+}
+footer{
+    width:100%;
+    background-color: #D9D4D4;
+    display:flex;
+    padding:10px 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+footer .copyright p{
+    color:var(--grey-shade-2);
+    margin:0;
+}
+footer .upper-arrow .box{
+    width:30px;
+    height:30px;
+    border:2px solid var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:var(--primary-color);
+    cursor:pointer;
 }
