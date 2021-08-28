@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <title>IG Download</title>
 </head>
 <body>
@@ -24,8 +25,8 @@
             </ul>
         </div>
     </header>
-    <section id="hero">
-        <div class="head">
+    <section id="hero" >
+        <div class="head" data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>INSTA DOWNLOADER</h1>
             </div>
@@ -34,10 +35,10 @@
             </div>
         </div>
         <div class="body">
-            <div class="body-image">
+            <div class="body-image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <img src="assets/images/insta.png" alt="">
             </div>
-            <div class="body-desc">
+            <div class="body-desc" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <h2>HOW IT WORKS ?</h2>
                 <div class="circles">
                     <div class="circle-1 circle">1</div>
@@ -63,8 +64,8 @@
             </div>
         </div>
     </section>
-    <section id="features">
-        <div class="head">
+    <section id="features" >
+        <div class="head"  data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>FEATURES</h1>
             </div>
@@ -73,7 +74,7 @@
             </div>
         </div>
         <div class="body">
-            <div class="left-features">
+            <div class="left-features" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="download-profile f-l">
                     <div class="content">
                         <div class="head">
@@ -120,10 +121,10 @@
                     </div>
                 </div>
             </div>
-            <div class="center-image">
+            <div class="center-image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <img src="assets/images/features.jpg" alt="">
             </div>
-            <div class="right-features">
+            <div class="right-features" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="download-reels f-r">
                     <div class="image">
                         <div class="image-a">
@@ -172,8 +173,8 @@
             </div>
         </div>
     </section>
-    <section id="team">
-        <div class="head">
+    <section id="team" >
+        <div class="head"  data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>OUR TEAM</h1>
             </div>
@@ -182,12 +183,12 @@
             </div>
         </div>
         <div class="body">
-            <div class="single-image">
+            <div class="single-image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="image-a">
                     <img src="assets/images/girl-1.jpg" alt="">
                 </div>
             </div>
-            <div class="all-members">
+            <div class="all-members" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="photos">
                     <div class="single-member">
                         <img src="assets/images/girl-1.jpg" alt="">
@@ -221,8 +222,8 @@
             </div>
         </div>
     </section>
-    <section id="getInTouch">
-        <div class="head">
+    <section id="getInTouch" >
+        <div class="head"  data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>GET IN TOUCH</h1>
             </div>
@@ -231,7 +232,7 @@
             </div>
         </div>
         <div class="body">
-            <div class="form">
+            <div class="form" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="email">
                     <input type="email" name="email" id="email-input" autocomplete = "off" placeholder = "email">
                 </div>
@@ -245,7 +246,7 @@
                     <button id = "submit-input">Submit</button>
                 </div>
             </div>
-            <div class="image">
+            <div class="image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="image-a">
                     <img src="assets/images/contact-us.jpg" alt="">
                 </div>
@@ -264,6 +265,27 @@
     </footer>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>    
+<script src="https://www.jqueryscript.net/demo/Scroll-triggered-Reveal-Animations-With-jQuery-Animate-css-Scrolla/dist/scrolla.jquery.min.js"></script>
+<script src="https://koffiisen.github.io/Animate.js/dist/animate.min.js"></script>
+<script>
+    $('#hero .body .body-image').scrolla();
+    $('#hero .body .body-desc').scrolla();
+    $('#features .body .left-features').scrolla();
+    $('#features .body  .center-image').scrolla();
+    $('#features .body  .right-features').scrolla();
+    $('#team .body .single-image').scrolla();
+    $('#team .body .all-members').scrolla();
+    $('#getInTouch .body .form').scrolla();
+    $('#getInTouch .body .image').scrolla();
+    $("#hero .head").scrolla();
+    $("#features .head").scrolla();
+    $("#team .head").scrolla();
+    $("#getInTouch .head").scrolla();
+
+    $(document).ready(function(){
+        $(".logo").bounceIn();
+    })
+</script>
 </body>
 </html>
