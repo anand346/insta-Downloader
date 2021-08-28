@@ -1,0 +1,39 @@
+@import url("style.css");
+section#hero .body .body-image{
+    width:50%;
+}
+section#hero .body .form{
+    width:50%;
+    height: 350px;
+    display:flex;
+    flex-direction :row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/background.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+section#hero .body .form .link input{
+    margin-right:20px;
+    border: 2px solid var(--primary-color);
+    width: 350px;
+    height: 40px;
+    border-radius: 50px;
+    padding:0px 10px;
+}
+section#hero .body .form .link input:focus{
+    outline:none;
+}
+section#hero .body .form .link input::-webkit-input-placeholder{
+    padding-left:10px;
+    font-size:14px;
+}
+section#hero .body .form .button button{
+    width:120px;
+    padding:5px;
+    background-color: var(--primary-color);
+    color:#fff;
+    font-weight: 500;
+    font-size: var(--sub-desc-font-size);
+}
