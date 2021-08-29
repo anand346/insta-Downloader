@@ -10,16 +10,16 @@
         <div class="body">
             <div class="single-image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="image-a">
-                    <img src="assets/images/girl-1.jpg" alt="">
+                    <img src="assets/images/team/memberOne.jpeg" alt="">
                 </div>
             </div>
             <div class="all-members" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="photos">
                     <div class="single-member memberOne">
-                        <img src="assets/images/girl-1.jpg" alt="">
+                        <img src="assets/images/team/memberOne.jpeg" alt="">
                     </div>
                     <div class="single-member memberTwo">
-                        <img src="assets/images/girl-2.jpg" alt="">
+                        <img src="assets/images/team/memberTwo.jpeg" alt="">
                     </div>
                     <div class="single-member memberThree">
                         <img src="assets/images/team/memberThree.jpeg" alt="">
@@ -31,17 +31,17 @@
                     <p>Full Stack Developer</p>
                 </div>
                 <div class="desc">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ea autem totam est laudantium iste nihil praesentium hic saepe repellendus, eveniet tempore quasi laborum aperiam placeat. Debitis laboriosam, sed veniam perferendis quaerat dolorem ex ducimus molestias, fuga, eaque repellat sint.</p>
+                    <p>Full Stack Developer with 1.5+ years of hands-on experience designing, developing and implementing applications and solutions using a range of technologies and programming languages. Seeking to leverage broad development experience and hands-on technical expertise in a challenging role as a Full-stack Developer.</p>
                 </div>
                 <div class="links">
                     <div class="twitter">
-                        <i class="fab fa-twitter" ></i>
+                        <a href="https://twitter.com/anand__346?s=08" target = "_blank"><i class="fab fa-twitter" ></i></a>
                     </div>
                     <div class="insta">
-                        <i class="fab fa-instagram" ></i>
+                        <a href="https://www.instagram.com/anand__346" target = "_blank"><i class="fab fa-instagram" ></i></a>
                     </div>
                     <div class="linkedin">
-                        <i class="fab fa-linkedin" ></i>
+                        <a href="https://www.linkedin.com/in/anand-raj-7ba6431a8" target = "_blank"><i class="fab fa-linkedin" ></i></a>
                     </div>
                 </div>
             </div>

@@ -13,6 +13,9 @@ body{
 a{
     text-decoration: none;
 }
+.fab{
+    color:var(--primary-color);
+}
 a:hover{
     text-decoration: none;
 }

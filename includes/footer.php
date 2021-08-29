@@ -52,22 +52,31 @@
                 id : 1,
                 name : "Anand Raj",
                 profession : "Full Stack Developer",
-                desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ea autem totam est laudantium iste nihil praesentium hic saepe repellendus, eveniet tempore quasi laborum aperiam placeat. Debitis laboriosam, sed veniam perferendis quaerat dolorem ex ducimus molestias, fuga, eaque repellat sint.",
-                photo : "girl-1.jpg"
+                desc : "Full Stack Developer with 1.5+ years of hands-on experience designing, developing and implementing applications and solutions using a range of technologies and programming languages. Seeking to leverage broad development experience and hands-on technical expertise in a challenging role as a Full-stack Developer.",
+                photo : "memberOne.jpeg",
+                insta : "https://www.instagram.com/anand__346",
+                linkedin : "https://www.linkedin.com/in/anand-raj-7ba6431a8",
+                twitter : "https://twitter.com/anand__346?s=08"
             },
             {
                 id : 2,
                 name : "Muskan Patel",
                 profession : "Web Designer",
-                desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ea autem totam est laudantium iste nihil praesentium hic saepe repellendus, eveniet tempore quasi laborum aperiam placeat. Debitis laboriosam, sed veniam perferendis quaerat dolorem ex ducimus molestias, fuga, eaque repellat sint.",
-                photo : "girl-2.jpg"
+                desc : "Highly seasoned and reliable Entry Level Web Designer with a strong work ethic and customer service and satisfaction record. Adept multitasker capable of bringing simultaneous web page creation and repair projects to completion with full accuracy and efficiency. Able to function well independently with little to no supervision or in coordination with a professional electronic media team.",
+                photo : "memberTwo.jpeg",
+                insta : "https://www.instagram.com/muskanpatel7747",
+                linkedin : "https://www.linkedin.com/in/muskan-patel-091437210",
+                twitter : "#"
             },
             {
                 id : 3,
                 name : "Faiyaz Ahmed",
                 profession : "Security Analyst",
-                desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ea autem totam est laudantium iste nihil praesentium hic saepe repellendus, eveniet tempore quasi laborum aperiam placeat. Debitis laboriosam, sed veniam perferendis quaerat dolorem ex ducimus molestias, fuga, eaque repellat sint.",
-                photo : "memberThree.jpeg"
+                desc : "Penetration tester with more than 2 years of experience in various domains such as web application security testing, penetration testing and generating reports using tools. Proficient in Linux operating system configuration utilities and programming.",
+                photo : "memberThree.jpeg",
+                insta : "http://www.instagram.com/faiyaz92_72",
+                linkedin : "https://www.linkedin.com/in/faiyaz-ahmad-64457520b",
+                twitter : "https://twitter.com/FaIyaZz007?s=08"
             }
         ];
         $("section#team .body .all-members .photos .single-member").on("click",function(event){
@@ -77,7 +86,10 @@
                         $("section#team .body .all-members .name-and-designation h5").text(member.name);
                         $("section#team .body .all-members .name-and-designation p").text(member.profession);
                         $("section#team .body .all-members .desc p").text(member.desc);
-                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/${member.photo}`);
+                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/team/${member.photo}`);
+                        $("section#team .body .all-members .links .twitter a").attr("href",`${member.twitter}`);
+                        $("section#team .body .all-members .links .insta a").attr("href",`${member.insta}`);
+                        $("section#team .body .all-members .links .linkedin a").attr("href",`${member.linkedin}`);
                     }
                 })
             }else if(event.currentTarget.classList[1] == "memberTwo"){
@@ -86,7 +98,10 @@
                         $("section#team .body .all-members .name-and-designation h5").text(member.name);
                         $("section#team .body .all-members .name-and-designation p").text(member.profession);
                         $("section#team .body .all-members .desc p").text(member.desc);
-                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/${member.photo}`);
+                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/team/${member.photo}`);
+                        $("section#team .body .all-members .links .twitter a").attr("href",`${member.twitter}`);
+                        $("section#team .body .all-members .links .insta a").attr("href",`${member.insta}`);
+                        $("section#team .body .all-members .links .linkedin a").attr("href",`${member.linkedin}`);
                     }
                 })
             }else if(event.currentTarget.classList[1] == "memberThree"){
@@ -96,6 +111,9 @@
                         $("section#team .body .all-members .name-and-designation p").text(member.profession);
                         $("section#team .body .all-members .desc p").text(member.desc);
                         $("section#team .body .single-image .image-a img").attr("src",`assets/images/team/${member.photo}`);
+                        $("section#team .body .all-members .links .twitter a").attr("href",`${member.twitter}`);
+                        $("section#team .body .all-members .links .insta a").attr("href",`${member.insta}`);
+                        $("section#team .body .all-members .links .linkedin a").attr("href",`${member.linkedin}`);
                     }
                 })
             }else{
