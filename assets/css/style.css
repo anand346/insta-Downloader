@@ -158,6 +158,10 @@ section#hero .body .body-image img{
     width:100%;
     height:100%;
     object-fit: contain;
+    transition:all .2s ease-in-out;
+}
+section#hero .body .body-image img:hover{
+    transform: scale(1.1);
 }
 section#hero .body .body-desc{
     width:45%;
@@ -282,6 +286,10 @@ section#features .body .left-features .f-l .image .image-a img{
     width:100%;
     height:100%;
     object-fit:scale-down;
+    transition: all .2s ease-in-out;
+}
+section#features .body .left-features .f-l .image .image-a img:hover{
+    transform:scale(1.1);
 }
 section#features .body .center-image{
     width:30%;
@@ -289,6 +297,7 @@ section#features .body .center-image{
     position:relative;
     overflow: hidden;
 }
+
 section#features .body .center-image img{
     position: absolute;
     top:0;
@@ -296,6 +305,10 @@ section#features .body .center-image img{
     width:100%;
     height:100%;
     object-fit: contain;
+    transition: all .2s ease-in-out;
+}
+section#features .body .center-image img:hover{
+    transform: scale(1.1);
 }
 section#features .body .right-features{
     width:30%;
@@ -356,6 +369,11 @@ section#features .body .right-features .f-r .image .image-a img{
     width:100%;
     height:100%;
     object-fit:scale-down;
+    transition: all .2s ease-in-out;
+}
+
+section#features .body .right-features .f-r .image .image-a img:hover{
+    transform: scale(1.1);
 }
 section#team .body{
     margin-bottom:100px;
@@ -373,6 +391,7 @@ section#team .body .single-image .image-a{
     width:100%;
     height:100%;
     overflow:hidden;
+    transition:  all .2s ease-in-out;
 }
 section#team .body .single-image .image-a img{
     position:absolute;
@@ -381,6 +400,9 @@ section#team .body .single-image .image-a img{
     width:100%;
     height:100%;
     object-fit: contain;
+}
+section#team .body .single-image .image-a:hover{
+    transform : scale(1.1);
 }
 section#team .body .all-members{
     height:400px;
@@ -404,6 +426,10 @@ section#team .body .all-members .photos .single-member{
     height:80px;
     border-radius: 50%;
     overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+section#team .body .all-members .photos .single-member:hover{
+    transform: scale(1.1);
 }
 section#team .body .all-members .photos .single-member img{
     position:absolute;
@@ -516,6 +542,10 @@ section#getInTouch .body .image .image-a{
     overflow:hidden;
     width:100%;
     height:100%;
+    transition:all .2s ease-in-out;
+}
+section#getInTouch .body .image .image-a:hover{
+    transform: scale(1.1);
 }
 section#getInTouch .body .image .image-a img{
     position:absolute;
