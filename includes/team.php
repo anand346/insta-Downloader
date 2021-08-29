@@ -15,14 +15,14 @@
             </div>
             <div class="all-members" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="photos">
-                    <div class="single-member">
+                    <div class="single-member memberOne">
                         <img src="assets/images/girl-1.jpg" alt="">
                     </div>
-                    <div class="single-member">
+                    <div class="single-member memberTwo">
                         <img src="assets/images/girl-2.jpg" alt="">
                     </div>
-                    <div class="single-member">
-                        <img src="assets/images/girl-3.jpg" alt="">
+                    <div class="single-member memberThree">
+                        <img src="assets/images/team/memberThree.jpeg" alt="">
                     </div>
                 </div>
                 <div class="joiner-team"></div>

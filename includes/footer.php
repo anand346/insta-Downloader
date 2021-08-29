@@ -47,6 +47,61 @@
             $('html, body').animate({scrollTop: 0}, duration);
             return false;
         })
+        var members = [
+            {
+                id : 1,
+                name : "Anand Raj",
+                profession : "Full Stack Developer",
+                desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ea autem totam est laudantium iste nihil praesentium hic saepe repellendus, eveniet tempore quasi laborum aperiam placeat. Debitis laboriosam, sed veniam perferendis quaerat dolorem ex ducimus molestias, fuga, eaque repellat sint.",
+                photo : "girl-1.jpg"
+            },
+            {
+                id : 2,
+                name : "Muskan Patel",
+                profession : "Web Designer",
+                desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ea autem totam est laudantium iste nihil praesentium hic saepe repellendus, eveniet tempore quasi laborum aperiam placeat. Debitis laboriosam, sed veniam perferendis quaerat dolorem ex ducimus molestias, fuga, eaque repellat sint.",
+                photo : "girl-2.jpg"
+            },
+            {
+                id : 3,
+                name : "Faiyaz Ahmed",
+                profession : "Security Analyst",
+                desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos ea autem totam est laudantium iste nihil praesentium hic saepe repellendus, eveniet tempore quasi laborum aperiam placeat. Debitis laboriosam, sed veniam perferendis quaerat dolorem ex ducimus molestias, fuga, eaque repellat sint.",
+                photo : "memberThree.jpeg"
+            }
+        ];
+        $("section#team .body .all-members .photos .single-member").on("click",function(event){
+            if(event.currentTarget.classList[1] == "memberOne"){
+                members.map((member) => {
+                   if(member.id == 1){
+                        $("section#team .body .all-members .name-and-designation h5").text(member.name);
+                        $("section#team .body .all-members .name-and-designation p").text(member.profession);
+                        $("section#team .body .all-members .desc p").text(member.desc);
+                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/${member.photo}`);
+                    }
+                })
+            }else if(event.currentTarget.classList[1] == "memberTwo"){
+                members.map((member) => {
+                   if(member.id == 2){
+                        $("section#team .body .all-members .name-and-designation h5").text(member.name);
+                        $("section#team .body .all-members .name-and-designation p").text(member.profession);
+                        $("section#team .body .all-members .desc p").text(member.desc);
+                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/${member.photo}`);
+                    }
+                })
+            }else if(event.currentTarget.classList[1] == "memberThree"){
+                members.map((member) => {
+                   if(member.id == 3){
+                        $("section#team .body .all-members .name-and-designation h5").text(member.name);
+                        $("section#team .body .all-members .name-and-designation p").text(member.profession);
+                        $("section#team .body .all-members .desc p").text(member.desc);
+                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/team/${member.photo}`);
+                    }
+                })
+            }else{
+
+            }
+        })
     })
     $(window).scroll(function() {
         if ($(this).scrollTop() > offset) {
