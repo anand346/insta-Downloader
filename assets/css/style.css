@@ -4,6 +4,9 @@
     padding:0;
     border:none;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     font-family:'Roboto';
 }
@@ -27,6 +30,32 @@ a:hover{
     --section-margin:50px;
     --section-padding:50px;
 }
+.back-to-top{
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 620px;
+    left: 1230px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    color: var(--secondary-color);
+    font-size:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display:none;
+}
+.fa-arrow-up{
+    position: relative;
+    top: 14px;
+    left: 18px;
+}
+.fa-arrow-up:hover{
+    background-color:#5d4168;    
+}
+.back-to-top:hover{
+    background-color:#5d4168;
+}
 #header{
     padding:20px 50px 0px 50px;
     display:flex;
@@ -47,7 +76,7 @@ a:hover{
     color : var(--primary-color);
     font-size: 30px;
     font-weight: 600;
-    margin-right:10px;
+    margin-right:5px;
 }
 #header .navigation{
     display:flex;
@@ -63,11 +92,21 @@ a:hover{
 }
 #header .navigation ul li{
     display: inline-block;
-    margin-right:30px;
+    width: 100px;
+    text-align: center;
+    margin-right: 30px;
+    border: 2px solid var(--primary-color);
+    padding: 2px 2px;
+    border-radius: 20px;
+}
+#header .navigation ul li:hover{
+    color:var(--secondary-color);
+    background-color:var(--primary-color);
+    transition: 0.3s ease;
 }
 #header .navigation ul li a{
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 #header .navigation ul li:last-child{
     margin-right:0px;    

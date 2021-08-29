@@ -9,9 +9,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/individual.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <title>IG Download</title>
 </head>
 <body>
+    <div class="upper-scroll-btn">
+        <div class="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </div>
+    </div>
     <header id = "header">
         <div class="logo">
             <a href="#home"><span>IG</span>Download</a>

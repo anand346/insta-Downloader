@@ -1,5 +1,5 @@
 <section id="team">
-        <div class="head">
+        <div class="head" data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>OUR TEAM</h1>
             </div>
@@ -8,12 +8,12 @@
             </div>
         </div>
         <div class="body">
-            <div class="single-image">
+            <div class="single-image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="image-a">
                     <img src="assets/images/girl-1.jpg" alt="">
                 </div>
             </div>
-            <div class="all-members">
+            <div class="all-members" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="photos">
                     <div class="single-member">
                         <img src="assets/images/girl-1.jpg" alt="">

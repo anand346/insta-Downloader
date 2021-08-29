@@ -1,5 +1,5 @@
 <section id="features">
-        <div class="head">
+        <div class="head" data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>FEATURES</h1>
             </div>
@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="body">
-            <div class="left-features">
+            <div class="left-features" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="download-profile f-l">
                     <div class="content">
                         <div class="head">
@@ -55,10 +55,10 @@
                     </div>
                 </div>
             </div>
-            <div class="center-image">
+            <div class="center-image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <img src="assets/images/features.jpg" alt="">
             </div>
-            <div class="right-features">
+            <div class="right-features" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="download-reels f-r">
                     <div class="image">
                         <div class="image-a">

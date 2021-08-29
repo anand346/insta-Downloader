@@ -1,6 +1,6 @@
 <?php include "includes/header.php"; ?>
 <section id="hero">
-        <div class="head">
+        <div class="head" data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>DOWNLOAD IGTV</h1>
             </div>
@@ -9,10 +9,10 @@
             </div>
         </div>
         <div class="body">
-            <div class="body-image">
+            <div class="body-image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <img src="assets/images/downloadIgtv.png" alt="">
             </div>
-            <div class="form">
+            <div class="form" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="link">
                     <input type="text" name="link" id="link" placeholder = "Enter your video URL here">
                 </div>

@@ -12,6 +12,11 @@
 <title>IG Download</title>
 </head>
 <body>
+    <div class="upper-scroll-btn">
+        <div class="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+        </div>
+    </div>
     <header id = "header">
         <div class="logo">
             <a href="index.html"><span>IG</span>Download</a>
@@ -257,11 +262,11 @@
         <div class="copyright">
             <p>copyright © anand346.host20.uk 2020-2021</p>
         </div>
-        <div class="upper-arrow">
+        <!-- <div class="upper-arrow">
             <div class="box">
                 <i class="fa fa-arrow-up" ></i>
             </div>
-        </div>
+        </div> -->
     </footer>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
@@ -282,10 +287,26 @@
     $("#features .head").scrolla();
     $("#team .head").scrolla();
     $("#getInTouch .head").scrolla();
-
+    var offset = 220;
+    var duration = 500;
     $(document).ready(function(){
-        $(".logo").bounceIn();
+        $(".logo").bounceIn(); //bounce logo on load
+        $("footer .upper-arrow .box").on("click",function(){
+            window.scrollTo(0, 0); // footer arrow to scroll top of the page
+        });
+        $('.back-to-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, duration);
+            return false;
+        })
     })
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > offset) {
+            $('.back-to-top').show(duration);
+        } else {
+            $('.back-to-top').hide(duration);
+        }
+    });
 </script>
 </body>
 </html>
