@@ -12,7 +12,6 @@ body{
 }
 a{
     text-decoration: none;
-    color:var(--primary-color);
 }
 a:hover{
     text-decoration: none;
@@ -239,6 +238,10 @@ section#features .body .left-features .f-l{
     align-items:center;
     justify-content:space-between;
     margin-bottom:80px;
+    transition:all .2s ease-in-out;
+}
+section#features .body .left-features .f-l:hover{
+    transform:scale(1.1);
 }
 section#features .body .left-features .f-l .content{
     width:65%;
@@ -322,6 +325,10 @@ section#features .body .right-features .f-r{
     align-items:center;
     justify-content:space-between;
     margin-bottom:80px;
+    transition:all .2s ease-in-out;
+}
+section#features .body .right-features .f-r:hover{
+    transform: scale(1.1);
 }
 section#features .body .right-features .f-r .content{
     width:65%;
