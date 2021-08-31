@@ -39,4 +39,8 @@ section#hero .body .form .button button{
     color:#fff;
     font-weight: 500;
     font-size: var(--sub-desc-font-size);
+    transition:all .3s ease;
+}
+section#hero .body .form .button button:hover{
+    background-color:#4b3553;
 }

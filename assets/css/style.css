@@ -245,7 +245,8 @@ section#hero .body .body-desc .steps .step p{
     text-align: justify;
     font-size:var(--subheading-font-size);
     color:var(--grey-shade-2);
-    text-align: center;
+    text-align: justify;
+    text-align-last:center;
 }
 
 section#features .body .left-features{
@@ -450,6 +451,7 @@ section#team .body .all-members .photos{
     margin-bottom:20px;
 }
 section#team .body .all-members .photos .single-member{
+    cursor:pointer;
     position:relative;
     width:80px;
     height:80px;

@@ -24,15 +24,15 @@
                 <div class="steps">
                     <div class="step-1 step">
                         <h4>Step #1</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe maiores fugiat, neque id dignissimos incidunt libero excepturi ducimus vero itaque.</p>
+                        <p>Hi , to use instagram downloader you have to just copy url of post , videos , IGTV , profile , reels etc.</p>
                     </div>
                     <div class="step-2 step">
                         <h4>Step #2</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe maiores fugiat, neque id dignissimos incidunt libero excepturi ducimus vero itaque.</p>
+                        <p>Scroll down to feature section and select which feature you have to use and click on that feature.</p>
                     </div>
                     <div class="step-3 step">
                         <h4>Step #3</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe maiores fugiat, neque id dignissimos incidunt libero excepturi ducimus vero itaque.</p>
+                        <p>You will redirect to that feature page where he/she has to just paste url of post and hit download button.</p>
                     </div>
                 </div>
             </div>

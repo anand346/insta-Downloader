@@ -16,7 +16,7 @@
                                 <h4>DOWNLOAD PROFILE #1</h4>
                             </div>
                             <div class="body">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, tempore.</p>
+                                <p>Download profile picture of any instagram public user just by pasting his profile url.</p>
                             </div>
                         </div>
                         <div class="image">
@@ -33,7 +33,7 @@
                                 <h4>EXTRACT TAGS #3</h4>
                             </div>
                             <div class="body">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, at?</p>
+                                <p>Extract tags of any instagram public post by just pasting post url.</p>
                             </div>
                         </div>
                         <div class="image">
@@ -50,7 +50,7 @@
                                 <h4>DOWNLOAD PHOTOS #5</h4>
                             </div>
                             <div class="body">
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, voluptatum?</p>
+                                <p>Download photos of of any instagram public account by pasting photo url.</p>
                             </div>
                         </div>
                         <div class="image">
@@ -77,7 +77,7 @@
                                 <h4>DOWNLOAD REELS #2</h4>
                             </div>
                             <div class="body">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, praesentium?</p>
+                                <p>Download any instagram public reel with just copy and pasting reel url.</p>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                                 <h4>DOWNLOAD VIDEOS #4</h4>
                             </div>
                             <div class="body">
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, adipisci?</p>
+                                <p>Download instagram public videos of any public account by pasting video url.</p>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                                 <h4>DOWNLOAD IGTV #6</h4>
                             </div>
                             <div class="body">
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, minus.</p>
+                                <p>Download any of your favourite IGTV videos by pasting IGTV video url.</p>
                             </div>
                         </div>
                     </div>
