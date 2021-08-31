@@ -32,6 +32,24 @@ a:hover{
     --section-margin:50px;
     --section-padding:50px;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+}
+::-webkit-scrollbar-track{
+    /* border-radius: 20px; */
+    background-color: #fff;
+}
 .back-to-top{
     width: 60px;
     height: 60px;
