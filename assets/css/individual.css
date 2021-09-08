@@ -44,3 +44,29 @@ section#hero .body .form .button button{
 section#hero .body .form .button button:hover{
     background-color:#4b3553;
 }
+
+
+/* Here Responsivness starts */
+
+@media screen and (max-width: 600px) {
+    section#hero .body .body-image{
+        display:none;
+    }
+    section#hero .body .form{
+        width:100%;
+        height: 100px;
+    }
+    section#hero .body .form .link{
+        width:80%;
+        margin-right:5%;
+    }
+    section#hero .body .form .link input{
+        width: 100%;
+    }
+    section#hero .body .form .button{
+        width:15%;
+    }
+    section#hero .body .form .button button{
+        width: 100%;
+    }
+}

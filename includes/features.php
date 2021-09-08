@@ -30,7 +30,7 @@
                     <div class="extract-tags f-l">
                         <div class="content">
                             <div class="head">
-                                <h4>EXTRACT TAGS #3</h4>
+                                <h4>EXTRACT TAGS #2</h4>
                             </div>
                             <div class="body">
                                 <p>Extract tags of any instagram public post by just pasting post url.</p>
@@ -47,7 +47,7 @@
                     <div class="download-photos f-l">
                         <div class="content">
                             <div class="head">
-                                <h4>DOWNLOAD PHOTOS #5</h4>
+                                <h4>DOWNLOAD PHOTOS #3</h4>
                             </div>
                             <div class="body">
                                 <p>Download photos of of any instagram public account by pasting photo url.</p>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="content">
                             <div class="head">
-                                <h4>DOWNLOAD REELS #2</h4>
+                                <h4>DOWNLOAD REELS #4</h4>
                             </div>
                             <div class="body">
                                 <p>Download any instagram public reel with just copy and pasting reel url.</p>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="content">
                             <div class="head">
-                                <h4>DOWNLOAD VIDEOS #4</h4>
+                                <h4>DOWNLOAD VIDEOS #5</h4>
                             </div>
                             <div class="body">
                                 <p>Download instagram public videos of any public account by pasting video url.</p>

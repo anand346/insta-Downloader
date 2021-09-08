@@ -3,6 +3,7 @@
     margin:0;
     padding:0;
     border:none;
+    box-sizing: border-box;
 }
 html{
     scroll-behavior: smooth;
@@ -26,11 +27,14 @@ a:hover{
     --grey-shade-2 : #969696;
     --black : #080808;
     --heading-font-size : 32px;
+    --responsive-heading-font-size:6vw;
     --subheading-font-size : 16px;
+    --heading-subheading-font-size : 4vw;
     --desc-font-size: 28px;
     --sub-desc-font-size : 20px;
     --section-margin:50px;
     --section-padding:50px;
+    --responsive-section-padding:10px 20px;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -607,4 +611,99 @@ footer .upper-arrow .box{
     align-items: center;
     color:var(--primary-color);
     cursor:pointer;
+}
+
+/* Here Responsivness starts */
+
+
+@media screen and (max-width: 600px) {
+    #header{
+        padding: 10px 20px 0px 20px;
+    }
+    #header .navigation{
+        display:none;
+    }
+    section{
+        padding:var(--responsive-section-padding);
+    }
+    section .head .heading h1{
+        font-size:var(--responsive-heading-font-size);
+    }
+    section .head .sub-heading h3{
+        text-align:center;
+        font-size:0.9rem;
+    }
+    section#hero .body .body-image{
+        display:none;
+    }
+    section#hero .body .form{
+        width:100%;
+        height: 100px;
+        background-image: none;
+    }
+    section#hero .body .form .link input{
+        width: 100%;
+    }
+    section#hero .body .form .button button{
+        width: 100%;
+    }
+    section#features .body{
+        flex-direction:column;
+        justify-content: center;
+    }
+    section#features .body .left-features{
+        width:100%;
+    }
+    section#features .body .center-image{
+        display:none;
+    }
+    section#features .body .right-features{
+        width:100%;
+    }
+    section#features .body .left-features .f-l .content .head h4{
+        font-size:1rem;
+    }
+    section#features .body .left-features .f-l .content .body p{
+        font-size:0.9rem;
+    }
+    section#features .body .right-features .f-r .content .body p{
+        font-size:0.9rem;
+    }
+    section#features .body .right-features .f-r .content .head h4{
+        font-size:1rem;
+    }
+    section#features .body .right-features .f-r .image .image-a{
+        width:80px;
+        height:80px;
+    }
+    section#features .body .left-features .f-l .image .image-a{
+        width:80px;
+        height:80px;
+    }
+    section#team .body{
+        flex-direction:column;
+    }
+    section#team .body .single-image{
+        width:100%;
+        overflow: hidden;
+        margin-bottom: 50px;
+    }
+    section#team .body .all-members{
+        width:100%;
+    }
+    section#team .body .all-members .photos{
+        width:100%;
+    }
+    section#getInTouch .body .form{
+        width:100%;
+    }
+    section#getInTouch .body .image{
+        display:none;
+    }
+    footer{
+        padding:10px 20px;
+    }
+    footer .copyright p{
+        font-size: 0.7rem;
+    }
 }
