@@ -7,9 +7,11 @@
 }
 html{
     scroll-behavior: smooth;
+    overflow-x:hidden;
 }
 body{
     font-family:'Roboto';
+    overflow-x:hidden;
 }
 a{
     text-decoration: none;
@@ -422,7 +424,7 @@ section#team .body .single-image{
 }
 section#team .body .single-image .image-a{
     position:relative;
-    width:100%;
+    width:60%;
     height:100%;
     overflow:hidden;
     transition:  all .2s ease-in-out;

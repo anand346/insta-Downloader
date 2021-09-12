@@ -1,4 +1,4 @@
-<section id="team">
+<section id="team" data-aos="slide-left">
         <div class="head" data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>OUR TEAM</h1>

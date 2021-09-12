@@ -13,21 +13,40 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 <script src="https://www.jqueryscript.net/demo/Scroll-triggered-Reveal-Animations-With-jQuery-Animate-css-Scrolla/dist/scrolla.jquery.min.js"></script>
 <script src="https://koffiisen.github.io/Animate.js/dist/animate.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     $('#hero .body .body-image').scrolla();
     $('#hero .body .form').scrolla();
     $('#hero .body .body-desc').scrolla();
-    $('#features .body .left-features').scrolla();
-    $('#features .body  .center-image').scrolla();
-    $('#features .body  .right-features').scrolla();
-    $('#team .body .single-image').scrolla();
-    $('#team .body .all-members').scrolla();
-    $('#getInTouch .body .form').scrolla();
-    $('#getInTouch .body .image').scrolla();
-    $("#hero .head").scrolla();
-    $("#features .head").scrolla();
-    $("#team .head").scrolla();
-    $("#getInTouch .head").scrolla();
+
+    //adding AOS attribute on section tags so that's why below code is commented;
+
+    // $('#features .body .left-features').scrolla();
+    // $('#features .body  .center-image').scrolla();
+    // $('#features .body  .right-features').scrolla();
+    // $('#team .body .single-image').scrolla();
+    // $('#team .body .all-members').scrolla();
+    // $('#getInTouch .body .form').scrolla();
+    // $('#getInTouch .body .image').scrolla();
+    // $("#hero .head").scrolla();
+    // $("#features .head").scrolla();
+    // $("#team .head").scrolla();
+    // $("#getInTouch .head").scrolla();
+
+    //adding AOS --start
+
+    AOS.init({
+        easing: 'ease-in-out-back',
+        duration: 1000,
+        once: false,
+        mirror: true,
+    });
+
+    //AOS attribute set done
+
+
+    //adding AOS --end
+
 
     $(document).ready(function(){
         $(".logo").bounceIn();

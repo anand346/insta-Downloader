@@ -2,10 +2,10 @@
 <section id="hero">
         <div class="head" data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
-                <h1>DOWNLOAD VIDEOS</h1>
+                <h1>INSTAGRAM DOWNLOADER</h1>
             </div>
             <div class="sub-heading">
-                <h3>Download Instagram public videos by pasting the link of videos below and hit to download button.</h3>
+                <h3>Simple and easy instagram downloader.Just pasting the link below and hit to download button.</h3>
             </div>
         </div>
         <div class="body">

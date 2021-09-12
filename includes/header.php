@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/individual.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<!-- animation on scroll css -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <title>IG Download</title>
 </head>
 <body>

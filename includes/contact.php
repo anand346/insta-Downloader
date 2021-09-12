@@ -1,4 +1,4 @@
-<section id="getInTouch">
+<section id="getInTouch" data-aos="slide-right">
         <div class="head" data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">
             <div class="heading">
                 <h1>GET IN TOUCH</h1>
