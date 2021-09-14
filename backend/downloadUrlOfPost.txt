@@ -1,0 +1,8 @@
+https://instagram.fbho4-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/224981355_519543239322077_1111465992614640139_n.jpg?_nc_ht=instagram.fbho4-2.fna.fbcdn.net&_nc_cat=105&_nc_ohc=a3iaV8xflBkAX_DfPEq&edm=AP_V10EBAAAA&ccb=7-4&oh=e6efe7d61a845594de947c0d6c0e545f&oe=614810BA&_nc_sid=4f375e
+
+the above url is simple insta post url, to make this url downloadable just append &dl=1 in last
+
+like : 
+https://instagram.fbho4-2.fna.fbcdn.net/v/t51.2885-15/e35/p1080x1080/224981355_519543239322077_1111465992614640139_n.jpg?_nc_ht=instagram.fbho4-2.fna.fbcdn.net&_nc_cat=105&_nc_ohc=a3iaV8xflBkAX_DfPEq&edm=AP_V10EBAAAA&ccb=7-4&oh=e6efe7d61a845594de947c0d6c0e545f&oe=614810BA&_nc_sid=4f375e&dl=1
+
+copy url and paste in chrome post will be downloaded.

@@ -10,7 +10,7 @@
         </div>
         <div class="body">
             <div class="body-image" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
-                <img src="assets/images/downloadVideo.png" alt="">
+                <img src="assets/images/insta.png" alt="">
             </div>
             <div class="form" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="link">
