@@ -143,13 +143,15 @@
             event.preventDefault();
             var url = $("#link").val();
             var action = $("#action").val();
+            $("#link").val("");
             $.ajax({
                 url : "backend/action.php",
                 type : "POST",
                 data : {url : url, action : action},
                 success : function(data){
                     var all_url = JSON.parse(data);
-                    console.log(all_url);
+                    // console.log(all_url);
+                    $("section#downloadable .all_contents").html("");
                     for(var i =0;i < all_url.length ; i++){
                         url = all_url[i].url;
                         url_display = all_url[i].display_url;
