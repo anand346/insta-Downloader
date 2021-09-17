@@ -31,7 +31,17 @@
         return $html;
     }
     
-    
+    function extractUsername($profileUrl){
+        $url = $profileUrl;
+        $profileArray = explode("/",$url);
+        if(strpos($profileArray[3],"?")){
+            $usernameArray = explode("?",$profileArray[3]);
+            $username = $usernameArray[0];
+        }else{
+            $username = $profileArray[3];
+        }
+        return $username;
+    }
 
     function getJsonData($url){
 
@@ -101,7 +111,6 @@
             $contentUrl[0]['url'] = $imageUrl;
             $contentUrl[0]['display_url'] = "backend/".$image_name;
         }else if ($jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphSidecar") {
-            $contentUrl = array();
             $children = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_sidecar_to_children"]["edges"];
             for($i = 0; $i < sizeof($children); $i++){
                 $contentUrl[$i]['url'] = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_sidecar_to_children"]["edges"][$i]["node"]["display_url"];
@@ -139,8 +148,23 @@
     }
 
 
-    function getProfilePic($url){
+    function getProfilePic($jsonData){
 
+        // return $jsonData;
+        $contentUrl = array();
+        $data = $jsonData["entry_data"]["ProfilePage"][0]["graphql"]["user"];
+        $imageUrl = $data['profile_pic_url_hd'];
+        preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg)/i",$imageUrl,$matches);
+        $image_url = $matches[0];
+        $image_url = explode("/",$image_url);
+        $image_name = end($image_url);
+        $image_media = getHtmlFromUrl($imageUrl);
+        $fileHandle =  fopen($image_name,"wb");
+        fwrite($fileHandle,$image_media);
+        fclose($fileHandle);
+        $contentUrl[0]['url'] = $imageUrl;
+        $contentUrl[0]['display_url'] = "backend/".$image_name;
+        return $contentUrl;
     }
 
     function getReel($jsonData){

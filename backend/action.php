@@ -18,14 +18,15 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && filter_var($_POST['url']
     switch ($_POST['action']) {
         case 'photo':
             $jsonData = getJsonData($_POST['url']);
-            // echo json_encode($jsonDkata);die();
             $data['medias'] = getPhoto($jsonData);
         break;            
-        // case 'reel':
-        // case 'video':
-        //     $data['medias'] = $instagram->getPost($_POST['url']);
-        //     // $data['user'] = $instagram->getProfile(null, false);
-        // break;
+        case 'profilePic':
+            $username = extractUsername($_POST['url']);
+            // $jsonLink = "https://www.instagram.com/".$username."/?__a=1";
+            $url = "https://www.instagram.com/".$username."/";
+            $jsonData = getJsonData($url);
+            $data['medias'] = getProfilePic($jsonData);
+        break;
         // case 'profilePic':
         //     $data['user'] = $instagram->getProfile($username, true);
         //     $data['medias'] = $instagram->getProfilePicture($data['user']['username'], false);
