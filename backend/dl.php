@@ -127,15 +127,24 @@
         }else{
             $contentUrl = null;
         }
-        return $contentUrl;    
-    
+        return $contentUrl;   
     }
 
     function getVideo($jsonData){
-    
+        $contentUrl = array();
         if($jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphVideo"){
             $videoUrl = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["video_url"];
-            $contentUrl = $videoUrl;        
+            $displayUrl = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["display_url"];
+            preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg)/i",$displayUrl,$matches);
+            $image_url = $matches[0];
+            $image_url = explode("/",$image_url);
+            $image_name = end($image_url);
+            $image_media = getHtmlFromUrl($displayUrl);
+            $fileHandle =  fopen($image_name,"wb");
+            fwrite($fileHandle,$image_media);
+            fclose($fileHandle);
+            $contentUrl[0]['url'] = $videoUrl;
+            $contentUrl[0]['display_url'] = "backend/".$image_name;        
         }else{
             $contentUrl = null;
         }

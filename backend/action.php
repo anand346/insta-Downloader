@@ -1,5 +1,10 @@
 <?php
 include "dl.php";
+function deleteFile($data){
+    $image = explode("/",$data['medias'][0]['display_url']);
+    sleep(5);
+    unlink($image[1]);
+}
 $error = array();
 if(!empty($_POST['url']) && !empty($_POST['action']) && filter_var($_POST['url'], FILTER_VALIDATE_URL)){
     $domain = str_ireplace('www.', '', parse_url($_POST['url'], PHP_URL_HOST));
@@ -22,15 +27,16 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && filter_var($_POST['url']
         break;            
         case 'profilePic':
             $username = extractUsername($_POST['url']);
-            // $jsonLink = "https://www.instagram.com/".$username."/?__a=1";
             $url = "https://www.instagram.com/".$username."/";
             $jsonData = getJsonData($url);
             $data['medias'] = getProfilePic($jsonData);
         break;
-        // case 'profilePic':
-        //     $data['user'] = $instagram->getProfile($username, true);
-        //     $data['medias'] = $instagram->getProfilePicture($data['user']['username'], false);
-        //     break;
+        case 'video':
+        case 'reel':
+        case 'igtv':
+            $jsonData = getJsonData($_POST['url']);
+            $data['medias'] = getVideo($jsonData);
+        break;
         // case 'profile':
         //     if (isset($json['graphql']['user']['username']) != '') {
         //         $data['user'] = $instagram->getProfileFromData($json['graphql']['user']);
@@ -73,5 +79,6 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && filter_var($_POST['url']
         break;
     }
      echo json_encode($data['medias']);
+    //  deleteFile($data);
 }
 ?>
