@@ -53,10 +53,8 @@
         $("footer .upper-arrow .box").on("click",function(){
             window.scrollTo(0, 0);
         });
-    })
-    var offset = 220;
-    var duration = 500;
-    $(document).ready(function(){
+        offset = 220;
+        duration = 500;
         $(".logo").bounceIn(); //bounce logo on load
         $("footer .upper-arrow .box").on("click",function(){
             window.scrollTo(0, 0); // footer arrow to scroll top of the page
@@ -139,8 +137,50 @@
                 
             }
         })
+
+        //AJAX --start
+        $("#download-btn").on("click",function(event){
+            event.preventDefault();
+            var url = $("#link").val();
+            var action = $("#action").val();
+            $.ajax({
+                url : "backend/action.php",
+                type : "POST",
+                data : {url : url, action : action},
+                success : function(data){
+                    var all_url = JSON.parse(data);
+                    console.log(all_url);
+                    url = all_url.url;
+                    url_display = all_url.display_url;
+                    url_download = url+'&dl=1';
+                    $("section#downloadable").removeAttr("style");
+                    $("section#downloadable").html(
+                        `
+                        <div class = "all_contents">
+                            <div class = "content">
+                                <div class = "content_image_container">
+                                    <img src="`+url_display+`" alt="Instagram image">
+                                </div>
+                                <div class="content_buttons_container">
+                                    <div class="download_btn">
+                                        <a href="`+url_download+`">Download</a> 
+                                    </div>
+                                    <div class="view_btn">
+                                        <a href="`+url+`" target = "_blank">View</a> 
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                        `
+                    )
+                }
+            })
+        })
+        
     })
     $(window).scroll(function() {
+        offset = 220;
+        duration = 500;
         if ($(this).scrollTop() > offset) {
             $('.back-to-top').show(duration);
         } else {

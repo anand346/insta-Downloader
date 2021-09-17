@@ -1,6 +1,4 @@
 <?php
-if(isset($_GET['url'])){
-    $url = $_GET['url'];
     function getHtmlFromUrl($url){
         $agents = array(
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:7.0.1) Gecko/20100101 Firefox/7.0.1',
@@ -24,84 +22,29 @@ if(isset($_GET['url'])){
         curl_setopt($ch,CURLOPT_AUTOREFERER,true);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
         curl_setopt($ch,CURLOPT_USERAGENT,$agents[array_rand($agents)]);
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch,CURLOPT_FOLLOWLOCATION,1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $html = curl_exec($ch);
         curl_close($ch);
-        // echo $html;die();
         return $html;
     }
-    $data = getHtmlFromUrl($url);
-    $pattern = "/window._sharedData = (.*);/";
-    preg_match($pattern,$data,$matches);
-    $data = json_decode($matches[1],true);
-    // echo $matches;
-    echo "<pre>";
-    print_r($data);
-    echo "</pre>";die();
-
-    // $tagsString = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"]["0"]["node"]["text"];
-    $tagsEdgeString = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"];
-    if(array_key_exists("0",$tagsEdgeString)){
-        $tagsString = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"]["0"]["node"]["text"];        
-        preg_match_all("/#(.*)/",$tagsString,$tagMatches);
-        // echo "<pre>";
-        // print_r($tagMatches[0][0]);
-        // echo "</pre>";die();
-        $tagsArr = explode(" ",$tagMatches[0][0]);
-        echo "<pre>";
-        print_r($tagsArr);
-        echo "</pre>";
-    }else{
-        echo "tags not exists";
-    }
-    if($data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphImage"){
-        $imageUrl = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["display_url"];
-        $contentUrl = $imageUrl;        
-    }else if($data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphVideo"){
-        $videoUrl = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["video_url"];
-        $contentUrl = $videoUrl;        
-    }else if ($data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphSidecar") {
-        $sideCarImageUrls = array();
-        $children = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_sidecar_to_children"]["edges"];
-        for($i = 0; $i < sizeof($children); $i++){
-            $sideCarImageUrls[] = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_sidecar_to_children"]["edges"][$i]["node"]["display_url"];
-        }
-        $contentUrl = array();
-        $contentUrl = $sideCarImageUrls;
-        // echo "<pre>";
-        // print_r($contentUrl);
-        // echo "</pre>";die();
-    } else{
-        echo "url is not valid";die();
-    }
-    // echo "<br>$url";die();
-    // preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(mp4)/i",$url,$videoAbsoluteUrl);
-    // $videoAbsoluteUrl = $videoAbsoluteUrl[0];
-
-    // $videoAbsoluteUrl = explode("/",$videoAbsoluteUrl);
-    // $videoName = end($videoAbsoluteUrl);
-
-    // $videoMedia = getHtmlFromUrl($url);
-    // $fileHandle =  fopen($videoName,"wb");
-    // if(fwrite($fileHandle,$videoMedia)){
-    //     echo '<a  href="http://localhost/php_curl/instadownloader/'.$videoName.'" download>Download In Computer</a><br>';
-    //     fclose($fileHandle);
-
-    // }
-    // forceDownload($videoUrl,"newDownlaod","mp4");
-    // echo '
-    // <a target = "_blank" href = "'.$videoUrl.'" download = "insta video">Download</a>
-    // ';
     
+    
+
+    function getJsonData($url){
+
+        $data = getHtmlFromUrl($url);
+        $pattern = "/window._sharedData = (.*);/";
+        preg_match($pattern,$data,$matches);
+        $data = json_decode($matches[1],true);
+        return $data;
+    
+    }
+
     function forceDownload($remoteUrl, $fileName){
-        echo "<br>{$remoteUrl}";
-        // if (empty($fileName)) {
-        //     $fileName = "hello world";
-        // }
-        // $fileName = $fileName . "." . "$fileType";
+
         $context_options = array(
             "ssl" => array(
                 "verify_peer" => false,
@@ -123,27 +66,140 @@ if(isset($_GET['url'])){
         flush();
         readfile($remoteUrl, "", stream_context_create($context_options));
         exit;
+    
     }
-    if(is_array($contentUrl)){
-        foreach ($contentUrl as $contentKey => $contentValue) {
-            // echo "<br><br>".$contentValue;
-            preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(mp4|jpg|jpeg|png)/i",$contentValue,$videoAbsoluteUrl);
-            $videoAbsoluteUrl = $videoAbsoluteUrl[0];
-            $videoAbsoluteUrl = explode("/",$videoAbsoluteUrl);
-            $videoName = end($videoAbsoluteUrl);
-            set_time_limit(0);
-            // echo "<br><a href = 'dl.php?dlUrl={$contentValue}'>{$contentKey}</a>";
-            // session_write_close();
-            forceDownload($contentValue,$videoName);
+
+
+    function extractTags($jsonData){
+
+        $tagsEdgeString = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"];
+        if(array_key_exists("0",$tagsEdgeString)){
+            $tagsString = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"]["0"]["node"]["text"];        
+            preg_match_all("/#(.*)/",$tagsString,$tagMatches);
+            $tagsArr = explode(" ",$tagMatches[0][0]);
+        }else{
+            $tagsArr = "tags not exists";
         }
-    }else{
-        preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(mp4|jpg|jpeg|png)/i",$contentUrl,$videoAbsoluteUrl);
-        $videoAbsoluteUrl = $videoAbsoluteUrl[0];
-        $videoAbsoluteUrl = explode("/",$videoAbsoluteUrl);
-        $videoName = end($videoAbsoluteUrl);
-        set_time_limit(0);
-        // echo "<br><a href = 'dl.php?dlUrl={$contentUrl}'>Download</a>";
-        forceDownload($contentUrl,$videoName);
+        return $tagsArr;
+
     }
-}
+
+    function getPhoto($jsonData){
+        $contentUrl = array();
+        if($jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphImage"){
+            // $imageUrl = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["display_url"];
+            $i = count($jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["display_resources"]) - 1;
+            $imageUrl = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["display_resources"][$i]["src"];
+            preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg)/i",$imageUrl,$matches);
+            $image_url = $matches[0];
+            $image_url = explode("/",$image_url);
+            $image_name = end($image_url);
+            $image_media = getHtmlFromUrl($imageUrl);
+            $fileHandle =  fopen($image_name,"wb");
+            fwrite($fileHandle,$image_media);
+            fclose($fileHandle);
+            $contentUrl['url'] = $imageUrl;
+            $contentUrl['display_url'] = "backend/".$image_name;
+        }else if ($jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphSidecar") {
+            $contentUrl = array();
+            $contentUrl['url'] = array();
+            $children = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_sidecar_to_children"]["edges"];
+            for($i = 0; $i < sizeof($children); $i++){
+                $contentUrl[$i]['url'] = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_sidecar_to_children"]["edges"][$i]["node"]["display_url"];
+                $contentUrl[$i]['display_url'] = "backend/".
+            }
+        }else{
+            $contentUrl = null;
+        }
+        return $contentUrl;    
+    
+    }
+
+    function getVideo($jsonData){
+    
+        if($jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphVideo"){
+            $videoUrl = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["video_url"];
+            $contentUrl = $videoUrl;        
+        }else{
+            $contentUrl = null;
+        }
+        return $contentUrl;
+    
+    }
+
+    function getIgtv($jsonData){
+
+    }
+
+
+    function getProfilePic($url){
+
+    }
+
+    function getReel($jsonData){
+
+    }
+    // $tagsString = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"]["0"]["node"]["text"];
+    
+    // if($data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphImage"){
+    //     $imageUrl = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["display_url"];
+    //     $contentUrl = $imageUrl;        
+    // }else if($data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphVideo"){
+    //     $videoUrl = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["video_url"];
+    //     $contentUrl = $videoUrl;        
+    // }else if ($data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["__typename"] == "GraphSidecar") {
+    //     $sideCarImageUrls = array();
+    //     $children = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_sidecar_to_children"]["edges"];
+    //     for($i = 0; $i < sizeof($children); $i++){
+    //         $sideCarImageUrls[] = $data["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_sidecar_to_children"]["edges"][$i]["node"]["display_url"];
+    //     }
+    //     $contentUrl = array();
+    //     $contentUrl = $sideCarImageUrls;
+    // } else{
+    //     $contentUrl = null;
+    // }
+
+
+    // echo "<br>$url";die();
+    // preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(mp4)/i",$url,$videoAbsoluteUrl);
+    // $videoAbsoluteUrl = $videoAbsoluteUrl[0];
+
+    // $videoAbsoluteUrl = explode("/",$videoAbsoluteUrl);
+    // $videoName = end($videoAbsoluteUrl);
+
+    // $videoMedia = getHtmlFromUrl($url);
+    // $fileHandle =  fopen($videoName,"wb");
+    // if(fwrite($fileHandle,$videoMedia)){
+    //     echo '<a  href="http://localhost/php_curl/instadownloader/'.$videoName.'" download>Download In Computer</a><br>';
+    //     fclose($fileHandle);
+
+    // }
+    // forceDownload($videoUrl,"newDownlaod","mp4");
+    // echo '
+    // <a target = "_blank" href = "'.$videoUrl.'" download = "insta video">Download</a>
+    // ';
+    
+    
+    // if(is_array($contentUrl)){
+    //     foreach ($contentUrl as $contentKey => $contentValue) {
+    //         // echo "<br><br>".$contentValue;
+    //         preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(mp4|jpg|jpeg|png)/i",$contentValue,$videoAbsoluteUrl);
+    //         $videoAbsoluteUrl = $videoAbsoluteUrl[0];
+    //         $videoAbsoluteUrl = explode("/",$videoAbsoluteUrl);
+    //         $videoName = end($videoAbsoluteUrl);
+    //         set_time_limit(0);
+    //         // echo "<br><a href = 'dl.php?dlUrl={$contentValue}'>{$contentKey}</a>";
+    //         // session_write_close();
+    //         forceDownload($contentValue,$videoName);
+    //     }
+    // }else{
+    //     preg_match("/(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(mp4|jpg|jpeg|png)/i",$contentUrl,$videoAbsoluteUrl);
+    //     $videoAbsoluteUrl = $videoAbsoluteUrl[0];
+    //     $videoAbsoluteUrl = explode("/",$videoAbsoluteUrl);
+    //     $videoName = end($videoAbsoluteUrl);
+    //     set_time_limit(0);
+    //     // echo "<br><a href = 'dl.php?dlUrl={$contentUrl}'>Download</a>";
+    //     forceDownload($contentUrl,$videoName);
+    // }
+
 ?>

@@ -15,6 +15,7 @@
             <div class="form" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="link">
                     <input type="text" name="link" id="link" placeholder = "Enter your video URL here">
+                    <input type="hidden" id = "action" name="action" value = "igtv">
                 </div>
                 <div class="button">
                     <button id= "download-btn"><img src="assets/images/downloadBtn.svg" height = "20" width = "20" alt=""></button>
