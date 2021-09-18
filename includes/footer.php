@@ -151,15 +151,38 @@
                 data : {url : url, action : action, csrf_token : csrf_token },
                 success : function(data){
                     var all_url = JSON.parse(data);
-                    console.log(all_url);
+                    $("section#downloadable .all_contents").html("");
                     if("mismatchCsrf" in all_url[0] || "hostError" in all_url[0] || "invalidAction" in all_url[0]){
-                        console.log(all_url[0]);
+                        var errorKey;
+                        for(const key in all_url[0]){
+                            errorKey = key;
+                        }
+                        $("section#downloadable .all_contents").append(`
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                `+all_url[0][errorKey]+`
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        `)
+                        $("section#downloadable").removeAttr("style");
                         return;
                     }else if("invalidPostUrl" in all_url[0] || "invalidProfileUrl" in all_url[0] || "noTags" in all_url[0]){
-                        console.log(all_url[0]);
+                        var errorKey;
+                        for(const key in all_url[0]){
+                            errorKey = key;
+                        }
+                        $("section#downloadable .all_contents").append(`
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                `+all_url[0][errorKey]+`
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        `)
+                        $("section#downloadable").removeAttr("style");
                         return;
                     }
-                    $("section#downloadable .all_contents").html("");
                     if(action != "tags"){
                         for(var i =0;i < all_url.length ; i++){
                             url = all_url[i].url;

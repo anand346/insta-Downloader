@@ -25,7 +25,9 @@
         </div>
 </section>
 <section id = "downloadable" style = "display:none">
-<div class = "all_contents"></div>
+<div class = "all_contents">
+
+</div>
 </section>
 <?php include "includes/features.php"; ?>
 <?php include "includes/team.php"; ?>
