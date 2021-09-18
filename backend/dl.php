@@ -82,13 +82,14 @@
 
     function extractTags($jsonData){
 
+        $tagsArr = array();
         $tagsEdgeString = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"];
         if(array_key_exists("0",$tagsEdgeString)){
-            $tagsString = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"]["0"]["node"]["text"];        
+            $tagsString = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"]["0"]["node"]["text"];
             preg_match_all("/#(.*)/",$tagsString,$tagMatches);
             $tagsArr = explode(" ",$tagMatches[0][0]);
         }else{
-            $tagsArr = "tags not exists";
+            $tagsArr[0] = "This post doesn't have any tags.";
         }
         return $tagsArr;
 

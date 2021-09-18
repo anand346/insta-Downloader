@@ -23,6 +23,11 @@
             </div>
         </div>
 </section>
+<section id = "downloadable" style = "display:none;">
+<div class = "all_contents">
+    <textarea name="tags" id="tags" cols="30" rows="10"></textarea>
+</div>
+</section>
 <?php include "includes/features.php"; ?>
 <?php include "includes/team.php"; ?>
 <?php include "includes/contact.php"; ?>

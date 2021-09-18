@@ -260,6 +260,14 @@ section#downloadable .all_contents{
     justify-content:center;
     align-items:center;
     flex-wrap:wrap;
+    width:100%;
+}
+section#downloadable .all_contents textarea{
+    border: 2px solid var(--primary-color);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 207px;
+    width: 80%;
 }
 section#downloadable .all_contents .content{
     display: flex;

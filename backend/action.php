@@ -37,48 +37,15 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && filter_var($_POST['url']
             $jsonData = getJsonData($_POST['url']);
             $data['medias'] = getVideo($jsonData);
         break;
-        // case 'profile':
-        //     if (isset($json['graphql']['user']['username']) != '') {
-        //         $data['user'] = $instagram->getProfileFromData($json['graphql']['user']);
-        //     } else {
-        //         $data['user'] = $instagram->getProfile($username, true);
-        //     }
-        //     if (isset($json['graphql']['user']['edge_owner_to_timeline_media']['edges']) != '') {
-        //         $data['medias'] = $instagram->getPostsFromData($json);
-        //     } else {
-        //         $data['medias'] = $instagram->getPosts($data['user']['username'], false);
-        //     }
-        //     break;
-        // case 'igtv':
-        //     $data['medias'] = $instagram->getIgtvVideos($username, true);
-        //     $data['user'] = $instagram->getProfile(null, false);
-        //     break;
-        // case 'story':
-        //     if (isset($json['graphql']['user']['username']) != '') {
-        //         $data['user'] = $instagram->getProfileFromData($json['graphql']['user']);
-        //     } else {
-        //         $data['user'] = $instagram->getProfile($username, true);
-        //     }
-        //     $data['medias'] = $instagram->getStories($data['user']['id']);
-        //     break;
-        // case 'highlights':
-        //     if (isset($json['graphql']['user']['username']) != '') {
-        //         $data['user'] = $instagram->getProfileFromData($json['graphql']['user']);
-        //     } else {
-        //         $data['user'] = $instagram->getProfile($username, true);
-        //     }
-        //     $data['medias'] = $instagram->getHighlights($data['user']['id']);
-        //     break;
-        // case 'privatePost':
-        //     $data['medias'] = $instagram->getPrivatePostFromData($json["source"]);
-        //     $data['user'] = $instagram->getProfile(null, false);
-        //     break;
+        case 'tags':
+            $jsonData = getJsonData($_POST['url']);
+            $data['medias'] = extractTags($jsonData);
+        break;
         default:
             $error[] = 'Invalid Action.';
             die(json_encode($error));
         break;
     }
      echo json_encode($data['medias']);
-    //  deleteFile($data);
 }
 ?>

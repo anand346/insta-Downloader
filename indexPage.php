@@ -15,12 +15,16 @@
             <div class="form" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
                 <div class="link">
                     <input type="text" name="link" id="link" placeholder = "Enter your video URL here">
+                    <input type="hidden" id = "action"  name="action" value = "video">
                 </div>
                 <div class="button">
                     <button id= "download-btn"><img src="assets/images/downloadBtn.svg" height = "20" width = "20" alt=""></button>
                 </div>
             </div>
         </div>
+</section>
+<section id = "downloadable" style = "display:none">
+<div class = "all_contents"></div>
 </section>
 <!-- <section id="hero">
         <div class="head" data-animate="rubberBand" data-duration="1.0s" data-delay="0.1s" data-iteration="3">

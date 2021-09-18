@@ -150,27 +150,36 @@
                 data : {url : url, action : action},
                 success : function(data){
                     var all_url = JSON.parse(data);
+                    console.log(all_url);
                     $("section#downloadable .all_contents").html("");
-                    for(var i =0;i < all_url.length ; i++){
-                        url = all_url[i].url;
-                        url_display = all_url[i].display_url;
-                        url_download = url+'&dl=1';
-                        $("section#downloadable .all_contents").append(
-                            `
-                                <div class = "content">
-                                    <div class = "content_image_container">
-                                        <img src="`+url_display+`" alt="Instagram image">
+                    if(action != "tags"){
+                        for(var i =0;i < all_url.length ; i++){
+                            url = all_url[i].url;
+                            url_display = all_url[i].display_url;
+                            url_download = url+'&dl=1';
+                            $("section#downloadable .all_contents").append(
+                                `
+                                    <div class = "content">
+                                        <div class = "content_image_container">
+                                            <img src="`+url_display+`" alt="Instagram image">
+                                        </div>
+                                        <div class="content_buttons_container">
+                                            <div class="download_btn">
+                                                <a href="`+url_download+`">Download</a> 
+                                            </div>
+                                            <div class="view_btn">
+                                                <a href="`+url+`" target = "_blank">View</a> 
+                                            </div>
+                                        </div>    
                                     </div>
-                                    <div class="content_buttons_container">
-                                        <div class="download_btn">
-                                            <a href="`+url_download+`">Download</a> 
-                                        </div>
-                                        <div class="view_btn">
-                                            <a href="`+url+`" target = "_blank">View</a> 
-                                        </div>
-                                    </div>    
-                                </div>
-                            `
+                                `
+                            )
+                        }
+                    }else{
+                        tagsString = all_url.toString();
+                        tagsString = tagsString.replaceAll(","," ");
+                        $("section#downloadable .all_contents").append(
+                            `<textarea name="tags" id="tags" cols="30" rows="10">`+tagsString+`</textarea>`
                         )
                     }
                     $("section#downloadable").removeAttr("style");
