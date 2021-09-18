@@ -150,7 +150,6 @@
                 type : "POST",
                 data : {url : url, action : action, csrf_token : csrf_token },
                 success : function(data){
-                    console.log(data);
                     var all_url = JSON.parse(data);
                     $("section#downloadable .all_contents").html("");
                     if("mismatchCsrf" in all_url[0] || "hostError" in all_url[0] || "invalidAction" in all_url[0]){
