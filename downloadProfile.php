@@ -16,6 +16,7 @@
                 <div class="link">
                     <input type="text" name="link" id="link" placeholder = "Enter profile URL here">
                     <input type="hidden" id = "action"  name="action" value = "profilePic">
+                    <input type="hidden" name="csrf_token" id = "csrf_token"  value = "<?php echo $_SESSION['csrf_token'];?>">
                 </div>
                 <div class="button">
                     <button id= "download-btn"><img src="assets/images/downloadBtn.svg" height = "20" width = "20" alt=""></button>

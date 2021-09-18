@@ -143,14 +143,22 @@
             event.preventDefault();
             var url = $("#link").val();
             var action = $("#action").val();
+            var csrf_token = $("#csrf_token").val();
             $("#link").val("");
             $.ajax({
                 url : "backend/action.php",
                 type : "POST",
-                data : {url : url, action : action},
+                data : {url : url, action : action, csrf_token : csrf_token },
                 success : function(data){
                     var all_url = JSON.parse(data);
-                    console.log(all_url);return;
+                    console.log(all_url);
+                    if("mismatchCsrf" in all_url[0] || "hostError" in all_url[0] || "invalidAction" in all_url[0]){
+                        console.log(all_url[0]);
+                        return;
+                    }else if("invalidPostUrl" in all_url[0] || "invalidProfileUrl" in all_url[0] || "noTags" in all_url[0]){
+                        console.log(all_url[0]);
+                        return;
+                    }
                     $("section#downloadable .all_contents").html("");
                     if(action != "tags"){
                         for(var i =0;i < all_url.length ; i++){
@@ -176,8 +184,9 @@
                             )
                         }
                     }else{
-                        tagsString = all_url.toString();
-                        tagsString = tagsString.replaceAll(","," ");
+                        tagsString = all_url[0].tags.toString();
+                        tagsString = tagsString.replaceAll("#"," #");
+                        tagsString = tagsString.replaceAll(",","");
                         $("section#downloadable .all_contents").append(
                             `<textarea name="tags" id="tags" cols="30" rows="10">`+tagsString+`</textarea>`
                         )

@@ -1,3 +1,7 @@
+<?php
+include "backend/session.php";
+generateCsrfToken();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

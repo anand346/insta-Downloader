@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "dl.php";
 function deleteFile($data){
     $image = explode("/",$data['medias'][0]['display_url']);
@@ -6,7 +7,11 @@ function deleteFile($data){
     unlink($image[1]);
 }
 $error = array();
-if(!empty($_POST['url']) && !empty($_POST['action']) && filter_var($_POST['url'], FILTER_VALIDATE_URL)){
+if(!empty($_POST['url']) && !empty($_POST['action']) && !empty($_POST['csrf_token']) && filter_var($_POST['url'], FILTER_VALIDATE_URL)){
+    if($_POST['csrf_token'] != $_SESSION['csrf_token']){
+        $error[0]['mismatchCsrf'] = "Error : CSRF token does not match.";
+        die(json_encode($error));
+    }
     $domain = str_ireplace('www.', '', parse_url($_POST['url'], PHP_URL_HOST));
     if (!empty(explode('.', str_ireplace('www.', '', parse_url($_POST['url'], PHP_URL_HOST)))[1])) {
         $mainDomain = explode('.', str_ireplace('www.', '', parse_url($_POST['url'], PHP_URL_HOST)))[1];

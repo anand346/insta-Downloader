@@ -89,12 +89,12 @@
             if(array_key_exists("0",$tagsEdgeString)){
                 $tagsString = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"]["0"]["node"]["text"];
                 preg_match_all("/#(.*)/",$tagsString,$tagMatches);
-                $tagsArr = explode(" ",$tagMatches[0][0]);
+                $tagsArr[0]['tags'] = explode(" ",$tagMatches[0][0]);
             }else{
-                $tagsArr[0] = "This post doesn't have any tags.";
+                $tagsArr[0]['noTags'] = "This post doesn't have any tags.";
             }
         }else{
-            $tagsArr[0] = "Please enter correct post url.";
+            $tagsArr[0]['noTags'] = "Please enter correct post url.";
         }
         return $tagsArr;
 
