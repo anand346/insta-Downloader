@@ -14,7 +14,7 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && filter_var($_POST['url']
         $mainDomain = null;
     }
     if ($domain != 'instagram.com') {
-        $error[] = 'URL host must be instagram.com';
+        $error[0]['hostError'] = 'URL host must be instagram.com';
         die(json_encode($error));
     }
     $data = array();
@@ -42,7 +42,7 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && filter_var($_POST['url']
             $data['medias'] = extractTags($jsonData);
         break;
         default:
-            $error[] = 'Invalid Action.';
+            $error[0]['invalidAction'] = 'Invalid Action.';
             die(json_encode($error));
         break;
     }

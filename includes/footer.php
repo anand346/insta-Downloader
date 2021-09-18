@@ -150,7 +150,7 @@
                 data : {url : url, action : action},
                 success : function(data){
                     var all_url = JSON.parse(data);
-                    console.log(all_url);
+                    console.log(all_url);return;
                     $("section#downloadable .all_contents").html("");
                     if(action != "tags"){
                         for(var i =0;i < all_url.length ; i++){
