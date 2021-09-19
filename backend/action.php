@@ -51,6 +51,7 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && !empty($_POST['csrf_toke
             die(json_encode($error));
         break;
     }
+    //  echo json_encode($jsonData);die();
      echo json_encode($data['medias']);
 }
 ?>

@@ -24,6 +24,7 @@
             </div>
         </div>
 </section>
+<span id = "loader" style = "display:none;"><img src="assets/images/loading.gif"  height = "200" alt=""></span>
 <section id = "downloadable" style = "display:none">
 <div class = "all_contents"></div>
 </section>

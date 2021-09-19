@@ -149,8 +149,13 @@
                 url : "backend/action.php",
                 type : "POST",
                 data : {url : url, action : action, csrf_token : csrf_token },
+                beforeSend : function(){
+                    $("#loader").removeAttr("style");
+                },
                 success : function(data){
                     var all_url = JSON.parse(data);
+                    console.log(all_url);
+                    $("#loader").attr("style","display:none");
                     $("section#downloadable .all_contents").html("");
                     if("mismatchCsrf" in all_url[0] || "hostError" in all_url[0] || "invalidAction" in all_url[0]){
                         var errorKey;

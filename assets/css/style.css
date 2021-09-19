@@ -329,6 +329,16 @@ section#downloadable .all_contents .content .content_buttons_container .view_btn
     text-decoration:none;
     color:var(--primary-color);
 }
+#loader{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#loader img{
+    position:absolute;
+}
 section#features .body .left-features{
     width:30%;
     display:flex;
