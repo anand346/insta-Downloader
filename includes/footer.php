@@ -96,45 +96,34 @@
                 twitter : "https://twitter.com/FaIyaZz007?s=08"
             }
         ];
+        function setMember(name,profession,desc,photo,twitter,insta,linkedin){
+            $("section#team .body .all-members .name-and-designation h5").text(name);
+            $("section#team .body .all-members .name-and-designation p").text(profession);
+            $("section#team .body .all-members .desc p").text(desc);
+            $("section#team .body .single-image .image-a img").attr("src",`assets/images/team/${photo}`);
+            $("section#team .body .all-members .links .twitter a").attr("href",`${twitter}`);
+            $("section#team .body .all-members .links .insta a").attr("href",`${insta}`);
+            $("section#team .body .all-members .links .linkedin a").attr("href",`${linkedin}`);
+        }
         $("section#team .body .all-members .photos .single-member").on("click",function(event){
             if(event.currentTarget.classList[1] == "memberOne"){
                 members.map((member) => {
                    if(member.id == 1){
-                        $("section#team .body .all-members .name-and-designation h5").text(member.name);
-                        $("section#team .body .all-members .name-and-designation p").text(member.profession);
-                        $("section#team .body .all-members .desc p").text(member.desc);
-                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/team/${member.photo}`);
-                        $("section#team .body .all-members .links .twitter a").attr("href",`${member.twitter}`);
-                        $("section#team .body .all-members .links .insta a").attr("href",`${member.insta}`);
-                        $("section#team .body .all-members .links .linkedin a").attr("href",`${member.linkedin}`);
+                       setMember(member.name,member.profession,member.desc,member.photo,member.twitter,member.insta,member.linkedin);
                     }
                 })
             }else if(event.currentTarget.classList[1] == "memberTwo"){
                 members.map((member) => {
                    if(member.id == 2){
-                        $("section#team .body .all-members .name-and-designation h5").text(member.name);
-                        $("section#team .body .all-members .name-and-designation p").text(member.profession);
-                        $("section#team .body .all-members .desc p").text(member.desc);
-                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/team/${member.photo}`);
-                        $("section#team .body .all-members .links .twitter a").attr("href",`${member.twitter}`);
-                        $("section#team .body .all-members .links .insta a").attr("href",`${member.insta}`);
-                        $("section#team .body .all-members .links .linkedin a").attr("href",`${member.linkedin}`);
+                        setMember(member.name,member.profession,member.desc,member.photo,member.twitter,member.insta,member.linkedin);
                     }
                 })
             }else if(event.currentTarget.classList[1] == "memberThree"){
                 members.map((member) => {
                    if(member.id == 3){
-                        $("section#team .body .all-members .name-and-designation h5").text(member.name);
-                        $("section#team .body .all-members .name-and-designation p").text(member.profession);
-                        $("section#team .body .all-members .desc p").text(member.desc);
-                        $("section#team .body .single-image .image-a img").attr("src",`assets/images/team/${member.photo}`);
-                        $("section#team .body .all-members .links .twitter a").attr("href",`${member.twitter}`);
-                        $("section#team .body .all-members .links .insta a").attr("href",`${member.insta}`);
-                        $("section#team .body .all-members .links .linkedin a").attr("href",`${member.linkedin}`);
+                        setMember(member.name,member.profession,member.desc,member.photo,member.twitter,member.insta,member.linkedin);
                     }
                 })
-            }else{
-                
             }
         })
 
