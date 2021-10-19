@@ -49,6 +49,18 @@
 
 
     $(document).ready(function(){
+        $.ajax({
+            url : "jsonData/links.json",
+            type : "POST",
+            data : {}
+            success : function(data){
+                links = data;
+            }
+        })
+        $("#search_box").on("keyup",function(){
+            var searchV = $("#search_box").val();
+            
+        })
         $(".logo").bounceIn();
         $("footer .upper-arrow .box").on("click",function(){
             window.scrollTo(0, 0);
