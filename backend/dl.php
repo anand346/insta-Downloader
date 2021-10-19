@@ -105,7 +105,7 @@
                 $tagsArr[0]['noTags'] = "This post doesn't have any tags.";
             }
         }else{
-            $tagsArr[0]['noTags'] = "Please enter correct post url.";
+            $tagsArr[0]['noTags'] = "Instagram blocks your requests";
         }
         return $tagsArr;
 
@@ -144,10 +144,10 @@
                     $contentUrl[$i]['display_url'] = "backend/".$image_name;
                 }
             }else{
-                $contentUrl[0]['invalidPostUrl'] = "Please enter correct post url.";
+                $contentUrl[0]['invalidPostUrl'] = "Instagram blocks your requests.";
             }    
         }else{
-            $contentUrl[0]['invalidPostUrl'] = "Please enter correct post url.";            
+            $contentUrl[0]['invalidPostUrl'] = "Instagram blocks your requests.";            
         }
         
         return $contentUrl;   
@@ -171,10 +171,10 @@
                 $contentUrl[0]['url'] = $videoUrl;
                 $contentUrl[0]['display_url'] = "backend/".$image_name;        
             }else{
-                $contentUrl[0]['invalidPostUrl'] = "Please enter correct post url.";
+                $contentUrl[0]['invalidPostUrl'] = "Instagram blocks your requests.";
             }
         }else{
-            $contentUrl[0]['invalidPostUrl'] = "Please enter correct post url.";
+            $contentUrl[0]['invalidPostUrl'] = "Instagram blocks your requests.";
         }
         return $contentUrl;
     
@@ -204,7 +204,7 @@
             $contentUrl[0]['url'] = $imageUrl;
             $contentUrl[0]['display_url'] = "backend/".$image_name;
         }else{
-            $contentUrl[0]['invalidProfileUrl'] = "Please enter correct profile url.";            
+            $contentUrl[0]['invalidProfileUrl'] = "Instagram blocks your request.";            
         }
         
         return $contentUrl;

@@ -28,11 +28,14 @@ generateCsrfToken();
         <div class="logo">
             <a href="indexPage.php"><span>IG</span>Download</a>
         </div>
+        <div class="search">
+            <input type="search" placeholder = "search" name="search" id="search_box">
+        </div>
         <div class="navigation">
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="searchPage.php">search</a></li>
+                <li><a href="#">search</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#getInTouch">Contact</a></li>
             </ul>
