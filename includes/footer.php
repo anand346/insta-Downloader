@@ -49,17 +49,19 @@
 
 
     $(document).ready(function(){
-        $.ajax({
-            url : "jsonData/links.json",
-            type : "POST",
-            data : {}
-            success : function(data){
-                links = data;
+        var res = fetch("jsonData/links.json").then(res => res.json());
+        $("#search_box").on("keyup",function(event){
+            if(event.keyCode == 13){
+                var searchV = $("#search_box").val();
+                res.then(data => {
+                    // console.log(data);
+                    data.forEach(item => {
+                        if(item.tags.includes(searchV)){
+                            console.log(item);
+                        }
+                    })
+                });
             }
-        })
-        $("#search_box").on("keyup",function(){
-            var searchV = $("#search_box").val();
-            
         })
         $(".logo").bounceIn();
         $("footer .upper-arrow .box").on("click",function(){
