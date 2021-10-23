@@ -53,11 +53,26 @@
         $("#search_box").on("keyup",function(event){
             if(event.keyCode == 13){
                 var searchV = $("#search_box").val();
+                $(".all_contents").html("");
                 res.then(data => {
-                    // console.log(data);
                     data.forEach(item => {
                         if(item.tags.includes(searchV)){
-                            console.log(item);
+                            $(".all_contents").append(`
+                            <div class="content">
+                                <div class="content_image_container">
+                                    <img src="`+item.view_url+`" alt="Instagram image">
+                                </div>
+                                <div class="content_buttons_container">
+                                    <div class="download_btn">
+                                        <a href="`+item.download_url+`">Download</a> 
+                                    </div>
+                                    <div class="view_btn">
+                                        <a href="`+item.download_url+`" target="_blank">View</a> 
+                                    </div>
+                                </div>    
+                            </div>
+                                `
+                            )
                         }
                     })
                 });
