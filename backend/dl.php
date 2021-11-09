@@ -81,7 +81,55 @@
     
     }
 
-
+    function saveTagsFile($jsonData,$mediaUrls){
+        $tagsArr = array();
+        $entryData = $jsonData["entry_data"];
+        if(array_key_exists("PostPage",$entryData)){
+            $tagsEdgeString = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"];
+            if(array_key_exists("0",$tagsEdgeString)){
+                $tagsString = $jsonData["entry_data"]["PostPage"][0]["graphql"]["shortcode_media"]["edge_media_to_caption"]["edges"]["0"]["node"]["text"];
+                preg_match_all("/#(.*)/",$tagsString,$tagMatches);
+                // return $tagMatches;
+                $allTagsArr = array();
+                if(empty($tagMatches[0])){
+                    $tagsArr[0]['noTags'] = "This post doesn't have any tags.";
+                    return $tagsArr;
+                }
+                for($i = 0; $i < sizeof($tagMatches[0]); $i++){
+                    $allTagsArr[] = explode(" ",$tagMatches[0][$i]);                    
+                }
+                $tagsArr[0]['tags'] = $allTagsArr;
+                if(is_array($allTagsArr)){
+                    foreach($allTagsArr as $tagsArr){
+                        if(is_array($tagsArr)){
+                            foreach($tagsArr as $tagsInd){
+                                $allTagsTogether[] = $tagsInd;
+                            }
+                        }else{
+                            $allTagsTogether[] = $tagsArr;
+                        }
+                    }
+                }else{
+                    $allTagsTogether[] = $allTagsArr;
+                }
+                $allTagsArrString = implode(" ",$allTagsTogether);
+                $data = [
+                    "tags" => $allTagsArrString,
+                    "view_url" => $mediaUrls[0]['display_url'],
+                    "download_url" => $mediaUrls[0]['url'].'&dl=1'
+                ];
+                $inp = file_get_contents('../jsonData/links.json');
+                $tempArray = json_decode($inp);
+                array_push($tempArray, $data);
+                $jsonEncoded = json_encode($tempArray);
+                file_put_contents('../jsonData/links.json', $jsonEncoded);
+            }else{
+                $tagsArr[0]['noTags'] = "This post doesn't have any tags.";
+            }
+        }else{
+            $tagsArr[0]['noTags'] = "Instagram blocks your requests";
+        }
+    }
     function extractTags($jsonData){
 
         $tagsArr = array();

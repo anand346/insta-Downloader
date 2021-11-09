@@ -49,7 +49,9 @@
 
 
     $(document).ready(function(){
-        var res = fetch("jsonData/links.json").then(res => res.json());
+        let x = Math.floor((Math.random()*10)+1);
+        var res = fetch(`jsonData/links.json?vr=${x}`).then(res => res.json());
+        res.then(r => console.log(r));
         $("#search_box").on("keyup",function(event){
             if(event.keyCode == 13){
                 var searchV = $("#search_box").val();

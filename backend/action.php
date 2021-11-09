@@ -29,6 +29,10 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && !empty($_POST['csrf_toke
         case 'photo':
             $jsonData = getJsonData($_POST['url']);
             $data['medias'] = getPhoto($jsonData);
+            // die(json_encode($data['medias']));
+            saveTagsFile($jsonData,$data['medias']);
+            // $tags = saveTagsFile($jsonData,$data['medias']);
+            // die(json_encode($mediaUrls));
         break;            
         case 'profilePic':
             $username = extractUsername($_POST['url']);
