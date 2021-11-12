@@ -45,6 +45,7 @@ if(!empty($_POST['url']) && !empty($_POST['action']) && !empty($_POST['csrf_toke
         case 'igtv':
             $jsonData = getJsonData($_POST['url']);
             $data['medias'] = getVideo($jsonData);
+            saveTagsFile($jsonData,$data['medias']);
         break;
         case 'tags':
             $jsonData = getJsonData($_POST['url']);

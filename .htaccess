@@ -1,0 +1,5 @@
+RewriteEngine on 
+RewriteCond %{HTTP_REFERER} !^localhost [NC] 
+RewriteCond %{HTTP_REFERER} !^http://localhost/.*$ [NC] 
+RewriteRule \.(gif|jpg|json|jpeg|png)$ - [F]
+Options -Indexes
