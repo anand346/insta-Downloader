@@ -113,14 +113,16 @@
                     $allTagsTogether[] = $allTagsArr;
                 }
                 $allTagsArrString = implode(" ",$allTagsTogether);
-                $data = [
-                    "tags" => $allTagsArrString,
-                    "view_url" => $mediaUrls[0]['display_url'],
-                    "download_url" => $mediaUrls[0]['url'].'&dl=1'
-                ];
                 $inp = file_get_contents('../jsonData/links.json');
                 $tempArray = json_decode($inp);
-                array_push($tempArray, $data);
+                for($i = 0; $i < sizeof($mediaUrls); $i++){
+                    $data = [
+                        "tags" => $allTagsArrString,
+                        "view_url" => $mediaUrls[$i]['display_url'],
+                        "download_url" => $mediaUrls[$i]['url'].'&dl=1'
+                    ];
+                    array_push($tempArray, $data);
+                }
                 $jsonEncoded = json_encode($tempArray);
                 file_put_contents('../jsonData/links.json', $jsonEncoded);
             }else{
