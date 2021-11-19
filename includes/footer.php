@@ -69,7 +69,7 @@
                                         <a href="`+item.download_url+`">Download</a> 
                                     </div>
                                     <div class="view_btn">
-                                        <a href="`+item.download_url+`" target="_blank">View</a> 
+                                        <a href="`+item.view_url+`" target="_blank">View</a> 
                                     </div>
                                 </div>    
                             </div>
@@ -253,7 +253,7 @@
                     $("section#downloadable").removeAttr("style");
                 }
             })
-        })
+        }) 
         
     })
     $(window).scroll(function() {
